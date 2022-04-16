@@ -23,6 +23,7 @@ public class MainApp {
 		Configuration con=new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
 		ServiceRegistry reg=new ServiceRegistryBuilder().applySettings(con.getProperties()).buildServiceRegistry();
 		SessionFactory sf=con.buildSessionFactory(reg);
+		//SessionFactory sf=con.buildSessionFactory();//deprecated
 		Session ses=sf.openSession();
 		Transaction tx=ses.beginTransaction();
 		ses.save(lop);
